@@ -1,0 +1,6 @@
+OPT_PATH="/opt/dev/bin"
+ARM_FC_EABI="/opt/dev/tc/arm-freddiechopin/bin"
+ARM_LPAD_EABI="/opt/dev/tc/arm-launchpad/bin"
+ARM_UCLINUX_EABI="/opt/dev/tc/arm-uclinux/bin"
+PATH="$OPT_PATH:$ARM_FC_EABI:$ARM_LPAD_EABI:$ARM_UCLINUX_EABI:$PATH"
+

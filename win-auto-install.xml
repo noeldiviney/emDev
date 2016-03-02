@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<AutomatedInstallation langpack="eng">
+<com.st.microxplorer.install.MXHTMLHelloPanel id="readme"/>
+<com.st.microxplorer.install.MXLicensePanel id="licence.panel"/>
+<com.st.microxplorer.install.MXTargetPanel id="target.panel">
+<installpath>E:\opt\dev\ide\STMicroelectronics\STM32Cube\STM32CubeMX</installpath>
+</com.st.microxplorer.install.MXTargetPanel>
+<com.st.microxplorer.install.MXShortcutPanel id="shortcut.panel">
+<createMenuShortcuts>false</createMenuShortcuts>
+<programGroup>STMicroelectronics\STM32Cube\STM32CubeMX</programGroup>
+<createDesktopShortcuts>false</createDesktopShortcuts>
+<createStartupShortcuts>false</createStartupShortcuts>
+<shortcutType>all</shortcutType>
+</com.st.microxplorer.install.MXShortcutPanel>
+<com.izforge.izpack.panels.install.InstallPanel id="install.panel"/>
+<com.st.microxplorer.install.MXFinishPanel id="finish.panel"/>
+</AutomatedInstallation>
