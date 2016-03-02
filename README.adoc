@@ -1,3 +1,44 @@
 # emDev
 
     Setting up a Linux and Windows Embedded Development Environment
+    This is a work in progress
+    
+## Setting up Windows
+
+    On Windows we will be using the Msys2 environment which is modelled on Cygwin  
+    (POSIX compatibility layer) and MinGW-w64 (from "MinGW-builds"), with the aim of  
+    better interoperability with native Windows software. It includes: MSYS2-shell  
+    and MinGW-w64 Win32 shell & MinGW-w64 Win64 shell. It supports & can work with  
+    both 32bit & 64bit multiple toolchains & targets, (for 64bit a 64bit operating  
+    system is needed).
+    MSYS2 is a successor of MSYS and MinGW-builds. MSYS2-shell uses "pacman" for  
+    downloading packages from repo, and these are GPG signed & verified. Packages 
+    are by developer: lexx83 (Alexpux), mingwandroid, niXman.
+    MSYS2 is a complete opensource development environment+shell solution+system.
+    It can obtain related all toolchains & dependency packages from "MinGW-builds" 
+    and MSYS2 REPO, for compiling/building other software. It can also obtain various  
+    directly usable tools & language support & compilers, like: perl, python, ruby,  
+    openssl, etc.
+    
+### Initial Setup of Msys2
+
+    * We will be using the 64 bit installer 
+    * Download and run http://repo.msys2.org/distrib/x86_64/msys2-x86_64-20160205.exe
+    * Install to c:\msys64 or in my case E:\msys64
+    * cd to c:\msys64 and launch *msys2_shell.bat*
+    * right click within the shell and select options to adjust the shell to your liking
+    * From the cmdline run *update-core* to update the base system packages
+    * Close and restart the shell to inialise the updated packages
+    * on restart from the cmdline run *pacman -Su*
+    
+### Using my Github based shell scripts to complete the Installation
+    From the cmdline do the following commands
+----
+    $ cd /
+    $ mkdir opt
+    $ cd opt
+    $ git clone https://github.com/noeldiviney/emDev.git
+    $ cd emDev
+    $ ./install-toolchains.sh
+----
+    The *install-toolchains.sh* script will now manage the rest of the Msys2 environment setup
