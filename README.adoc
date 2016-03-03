@@ -31,7 +31,8 @@
     * Close and restart the shell to inialise the updated packages
     * on restart from the cmdline run *pacman -Su*
     
-### Using my Github based shell scripts to complete the Installation
+### Setup is managed completely by install-toolchains.sh
+    Just follow the prompts  
     From the cmdline do the following commands
 ----
     $ cd /
@@ -42,3 +43,18 @@
     $ ./install-toolchains.sh
 ----
     The *install-toolchains.sh* script will now manage the rest of the Msys2 environment setup
+
+== Setting up Linux
+
+### Setup is managed completely by install-toolchains.sh
+    Just follow the prompts  
+    From the cmdline do the following commands
+----
+    $ cd /
+    $ mkdir opt
+    $ cd opt
+    $ git clone https://github.com/noeldiviney/emDev.git
+    $ chown -R 
+    $ cd emDev
+    $ ./install-toolchains.sh
+----
