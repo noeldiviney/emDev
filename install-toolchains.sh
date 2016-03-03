@@ -20,7 +20,7 @@ main()
 
 	discover_platform				# windows or linux platform num cores etc
 
-#	install_dependencies			# install needed libs etc
+	install_dependencies			# install needed libs etc
 
 #	install_mingw32_qt 				# install mingw32 i686 and QT libs etc
 
@@ -32,21 +32,21 @@ main()
 
 	create_dir_structure			# Setup embeddedDev directory structure
 
-#	build_install_unzip				# unzip is required for extracting zip files
+	build_install_unzip				# unzip is required for extracting zip files
 
-#	install_arm_freddiechopin 		# arm-none-eabi  optimised launchpad
+	install_arm_freddiechopin 		# arm-none-eabi  optimised launchpad
 
-#	install_arm_uclinux				# Codesourcery uclinux compiler
+	install_arm_uclinux				# Codesourcery uclinux compiler
 
-#	install_arm_launchpad			# Arm Launchpad arm-none-eabi compiler
+	install_arm_launchpad			# Arm Launchpad arm-none-eabi compiler
 
-#	install_stm32cubemx				# STmicro Stm32CubeMX pin configuration tool
+	install_stm32cubemx				# STmicro Stm32CubeMX pin configuration tool
 
-#	install_openstm32				# STMicro System Workbench IDE
+	install_openstm32				# STMicro System Workbench IDE
 
 	install_asciidocfx				# AsciidocFX asciidoc editor with live preview
 
-#	build_install_codelite			# Build custom Codelite
+	build_install_codelite			# Build custom Codelite
 
 }
 
