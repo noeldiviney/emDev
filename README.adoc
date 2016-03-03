@@ -54,7 +54,11 @@
     $ mkdir opt
     $ cd opt
     $ git clone https://github.com/noeldiviney/emDev.git
-    $ chown -R 
+    $ chown -R `whoami`:`whoami` emDev
     $ cd emDev
+    $ chmod +x install-toolchains.sh
     $ ./install-toolchains.sh
 ----
+
+    The *install-toolchains.sh* script will now manage the rest of the Linux environment setup
+    
