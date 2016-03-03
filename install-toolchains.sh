@@ -6,7 +6,7 @@
 #	for information on this eloquent means of providing 
 #	the equivalent of forward declarations in a shell script
 #
-#set -x #echo on
+set -x #echo on
 
 #---------------------------------------------
 #	main()
@@ -34,17 +34,17 @@ main()
 
 	build_install_unzip				# unzip is required for extracting zip files
 
-	install_arm_freddiechopin 		# arm-none-eabi  optimised launchpad
+#	install_arm_freddiechopin 		# arm-none-eabi  optimised launchpad
 
-	install_arm_uclinux				# Codesourcery uclinux compiler
+#	install_arm_uclinux				# Codesourcery uclinux compiler
 
-	install_arm_launchpad			# Arm Launchpad arm-none-eabi compiler
+#	install_arm_launchpad			# Arm Launchpad arm-none-eabi compiler
 
-	install_stm32cubemx				# STmicro Stm32CubeMX pin configuration tool
+#	install_stm32cubemx				# STmicro Stm32CubeMX pin configuration tool
 
-	install_openstm32				# STMicro System Workbench IDE
+#	install_openstm32				# STMicro System Workbench IDE
 
-	install_asciidocfx				# AsciidocFX asciidoc editor with live preview
+#	install_asciidocfx				# AsciidocFX asciidoc editor with live preview
 
 	build_install_codelite			# Build custom Codelite
 
@@ -133,23 +133,7 @@ install_dependencies()
 		pacman -S git svn mercurial cvs p7zip ruby
 	else
 		echo "Platform is pc-linux-gnu"
-	fi
-}
-
-#---------------------------------------------
-#	install_dependencies()
-#---------------------------------------------
-install_dependencies()
-{
-	echo "entering install_dependencies function"
-	if [ $PLATFORM = "mingw32" ]; then
-		echo "platform is mingw32"
-		pacman -Su
-		pacman -S mingw-w64-i686-toolchain
-		pacman -S mingw-w64-x86_64-qt-creator
-		pacman -S mingw-w64-x86_64-qt5-static
-	else
-		echo "Platform is pc-linux-gnu"
+		return
 	fi
 }
 
@@ -187,7 +171,7 @@ remote_repositories()
 
 		CODELITE_URL="https://github.com/eranif/codelite.git"
 		CODELITE_SRC="$DOWNLOAD_DIR/codelite"
-		CODELITE_MAKE="-G \"Unix Makefiles\" -DCOPY_WX_LIBS=1 -DCMAKE_BUILD_TYPE=Release -DPREFIX=/opt/dev/ide/codeliteMB .."
+		CODELITE_MAKE="-G \"Unix Makefiles\" -DCOPY_WX_LIBS=1 -DCMAKE_BUILD_TYPE=Release -DPREFIX=/opt/emDev/ide/codeliteMB .."
 
 
 		ARM_UCLINUX="https://sourcery.mentor.com/GNUToolchain/package8744/public/arm-uclinuxeabi/arm-2011.03-46-arm-uclinuxeabi-i686-pc-linux-gnu.tar.bz2"
@@ -358,7 +342,7 @@ build_install_codelite()
 	echo "entering build_install_codelite function"
 	if [ $PLATFORM = "pc-linux-gnu" ]; then
 		git_clone $CODELITE_URL $CODELITE_SRC
-		build "$CODELITE_SRC" "mingw-w64-codelite-git" "$CODELITE_MAKE"
+		build_codelite "$CODELITE_SRC" "$CODELITE_MAKE"
 		create_shortcut codeliteMB /opt/dev/ide/codeliteMB/bin/codelite
 	else	# mingw32
 		git_clone $MINGW_PACKAGES_URL $MINGW_PACKAGES_SRC
@@ -453,28 +437,27 @@ build_codelite()
 	echo "entering build_codelite function"
 	echo "arg 1 = $1"
 	echo "arg 2 = $2"
-	build_src=$1
-	package_name=$2
+		build_src=$1
 
 	if [ $PLATFORM = "pc-linux-gnu" ]; then
+		cmake_args=$2		
 		cd $build_src
 		echo "we are at `pwd`"
 		mkdir -p build-release
 		cd build-release
-		#echo	"cmake $build_args"
-		eval cmake "$build_args"
+		echo	"cmake $cmake_args"
+		eval cmake "$cmake_args"
 		#make -j8
 		make $PARALLEL_MAKE
 		make install
 	else	# mingw
+		package_name=$2
 		cd $build_src/$package_name
 		cp /opt/dev/PKGBUILD-codelite PKGBUILD
 		echo "we are at `pwd`"
 		MINGW_INSTALLS=mingw64 makepkg-mingw -sLf
-		create_shortcut codeliteMB $IDE_INSTALL_DIR/codelite/bin/codelite
 	fi
-		
-exit
+		create_shortcut codeliteMB $IDE_INSTALL_DIR/codelite/bin/codelite		
 }
 
 
