@@ -6,7 +6,7 @@
 #	for information on this eloquent means of providing 
 #	the equivalent of forward declarations in a shell script
 #
-#set -x #echo on
+set -x #echo on
 
 #---------------------------------------------
 #	main()
@@ -32,16 +32,16 @@ main()
 
 	create_dir_structure			# Setup embeddedDev directory structure
 
-	build_install_unzip				# unzip is required for extracting zip files
+#	build_install_unzip				# unzip is required for extracting zip files
 
-	install_arm_freddiechopin 		# arm-none-eabi  optimised launchpad
+#	install_arm_freddiechopin 		# arm-none-eabi  optimised launchpad
 
-	install_arm_uclinux				# Codesourcery uclinux compiler
+#	install_arm_uclinux				# Codesourcery uclinux compiler
 
-	install_arm_launchpad			# Arm Launchpad arm-none-eabi compiler
+#	install_arm_launchpad			# Arm Launchpad arm-none-eabi compiler
 
 	install_stm32cubemx				# STmicro Stm32CubeMX pin configuration tool
-
+exit
 	install_openstm32				# STMicro System Workbench IDE
 
 	install_asciidocfx				# AsciidocFX asciidoc editor with live preview
@@ -677,7 +677,7 @@ install()
 				rm -rf $DOWNLOAD_DIR/$namenoext
 			fi
 			unzip $file_to_install -d $DOWNLOAD_DIR/stm32cubemx
-			java -jar $DOWNLOAD_DIR/stm32cubemx/Setup*.exe auto-install.xml
+			java -jar $DOWNLOAD_DIR/stm32cubemx/Setup*.exe $BASEDIR/auto-install.xml
 			echo "name = $name"
 			create_shortcut stm32cubemx $IDE_INSTALL_DIR/stm32cubemx/STM32CubeMX
 			;;
