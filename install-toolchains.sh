@@ -32,15 +32,15 @@ main()
 
 	create_dir_structure			# Setup embeddedDev directory structure
 
-#	build_install_unzip				# unzip is required for extracting zip files
+	build_install_unzip				# unzip is required for extracting zip files
 
-#	install_arm_freddiechopin 		# arm-none-eabi  optimised launchpad
+	install_arm_freddiechopin 		# arm-none-eabi  optimised launchpad
 
-#	install_arm_uclinux				# Codesourcery uclinux compiler
+	install_arm_uclinux				# Codesourcery uclinux compiler
 
-#	install_arm_launchpad			# Arm Launchpad arm-none-eabi compiler
+	install_arm_launchpad			# Arm Launchpad arm-none-eabi compiler
 
-#	install_stm32cubemx				# STmicro Stm32CubeMX pin configuration tool
+	install_stm32cubemx				# STmicro Stm32CubeMX pin configuration tool
 
 	install_openstm32				# STMicro System Workbench IDE
 
