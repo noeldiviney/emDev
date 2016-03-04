@@ -6,7 +6,7 @@
 #	for information on this eloquent means of providing 
 #	the equivalent of forward declarations in a shell script
 #
-set -x #echo on
+#set -x #echo on
 
 #---------------------------------------------
 #	main()
@@ -40,8 +40,8 @@ main()
 
 #	install_arm_launchpad			# Arm Launchpad arm-none-eabi compiler
 
-	install_stm32cubemx				# STmicro Stm32CubeMX pin configuration tool
-exit
+#	install_stm32cubemx				# STmicro Stm32CubeMX pin configuration tool
+
 	install_openstm32				# STMicro System Workbench IDE
 
 	install_asciidocfx				# AsciidocFX asciidoc editor with live preview
@@ -686,7 +686,8 @@ install()
 			echo "current directory is `pwd`"
 			chmod +x $file_to_install
 			echo "installing into $IDE_INSTALL_DIR/openstm32"
-			$file_to_install
+			echo $file-to-install
+			$file_to_install $IDE_INSTALL_DIR/openstm32
 			create_shortcut openstm32 $IDE_INSTALL_DIR/openstm32/eclipse
 			echo $name
 			;;
